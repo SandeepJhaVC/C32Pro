@@ -11,7 +11,7 @@ function setup() {
     engine = Engine.create();
     world = engine.world;
 
-    platform2 = new Ground(1000, 650, 400, 20);
+    platform2 = new Ground(1000, 640, 400, 20);
     platform3 = new Ground(1500, 400, 400, 20);
 
     box1 = new Box(1400, 370, 50, 40);
@@ -110,4 +110,10 @@ function mouseDragged(){
 
 function mouseReleased(){
     sling.fly();
+}
+
+function keyPressed(){
+    if(keyCode === 32){
+        sling.attach(ball.body);
+    }
 }

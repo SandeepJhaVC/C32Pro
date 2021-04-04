@@ -2,6 +2,7 @@ class Ball {
     constructor(x, y, radius) {
         var options = {
             //isStatic: true
+            density: 50
         }
         this.body = Bodies.circle(x, y, radius, options);
         this.r = radius;
