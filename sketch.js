@@ -3,7 +3,12 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
+var score = 0;
+
+var bg = 0;
+
 function preload() {
+    BgImg();
 }
 
 function setup() {
@@ -56,8 +61,48 @@ function setup() {
 }
 
 function draw() {
-    background("grey");
+
+    if(bg === 1){
+        background("yellow");
+    }else if(bg === 2){
+        background("black");
+    }
+
     Engine.update(engine);
+
+    textSize(50);
+    fill("blue")
+    text("score: " +score, width-300,100);
+
+    box1.score();
+    box2.score();
+    box3.score();
+    box4.score();
+    box5.score();
+    box6.score();
+    box7.score();
+    box8.score();
+    box9.score();
+    box10.score();
+    box11.score();
+    box12.score();
+    box13.score();
+    box14.score();
+    box15.score();
+    box16.score();
+    box17.score();
+    box18.score();
+    box19.score();
+    box20.score();
+    box21.score();
+    box22.score();
+    box23.score();
+    box24.score();
+    box25.score();
+    box26.score();
+    box27.score();
+    box28.score();
+    box29.score();
 
     platform2.display();
     platform3.display();
@@ -99,7 +144,11 @@ function draw() {
     box28.display();
     box29.display();
 
+    
+
+
     sling.display();
+    
 
 }
 
@@ -115,5 +164,23 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
         sling.attach(ball.body);
+    }
+}
+
+async function BgImg() {
+    //var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var response = await fetch("http://worldtimeapi.org/api/timezone/America/New_York");
+
+    var responseJson = await response.json();
+
+    var dt = responseJson.datetime;
+
+    var hr = dt.slice(11, 13);
+    
+
+    if (hr >= 6 && hr <= 18) {
+        bg = 1;
+    } else {
+        bg = 2;
     }
 }
