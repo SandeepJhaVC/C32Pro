@@ -169,7 +169,7 @@ function keyPressed(){
 
 async function BgImg() {
     //var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata");
-    var response = await fetch("http://worldtimeapi.org/api/timezone/America/New_York");
+    var response = await fetch("https://worldtimeapi.org/api/timezone/America/New_York");
 
     var responseJson = await response.json();
 
